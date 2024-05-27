@@ -3,35 +3,32 @@
 
 using namespace sf;
 
-class Bat
+class Ball
 {
 private:
 	Vector2f m_Position;
-
-	// A RectangleShape object
 	RectangleShape m_Shape;
 
 	float m_Speed = 1000.0f;
-
-	bool m_MovingRight = false;
-	bool m_MovingLeft = false;
-
+	float m_DirectionX = .2f;
+	float m_DirectionY = .2f;
 
 public:
-	Bat(float startX, float startY);
+	Ball(float startX, float startY);
 
 	FloatRect getPosition();
 
 	RectangleShape getShape();
 
-	void moveLeft();
+	float getXVelocity();
 
-	void moveRight();
+	void reboundSides();
 
-	void stopLeft();
+	void reboundBatOrTop();
 
-	void stopRight();
+	void reboundBottom();
 
 	void update(Time dt);
 
 };
+
